@@ -1,0 +1,32 @@
+lass Solution{
+  public:
+    string reverseWords(string S) 
+    { 
+        // cint ode here 
+        //S = S+'.';
+        int l = S.length();
+        stack<string> st;
+        string temp_string;
+        for(int i =0;i<l;i++)
+        {
+            if(S[i] != '.'){
+                temp_string = temp_string + S[i];
+                
+            }
+            else{
+                
+                st.push(temp_string);
+                st.push(".");
+                temp_string = "";
+            }
+            
+        }
+        st.push(temp_string);
+        string rev_string;
+        while (!st.empty()) {
+            rev_string = rev_string + st.top();
+            st.pop();
+        }
+        return rev_string;
+    } 
+};
